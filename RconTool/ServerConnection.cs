@@ -57,11 +57,11 @@ namespace EldoritoRcon
             if (ServerOpen != null)
                 ServerOpen(this);
 
-            ws.Send(Encoding.ASCII.GetBytes(Password));
+            ws.Send(Encoding.UTF8.GetBytes(Password));
             if (connection.serverinfo.sendOnConnect != null)
             foreach (string sc in connection.serverinfo.sendOnConnect)
             {
-                ws.Send(Encoding.ASCII.GetBytes(sc));
+                ws.Send(Encoding.UTF8.GetBytes(sc));
             }
         }
 
@@ -81,7 +81,7 @@ namespace EldoritoRcon
 
             try
             {
-                ws.Send(Encoding.ASCII.GetBytes(cmd));
+                ws.Send(Encoding.UTF8.GetBytes(cmd));
             } catch (Exception)
             {
             }
